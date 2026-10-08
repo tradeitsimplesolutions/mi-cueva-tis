@@ -65,7 +65,7 @@ section{padding-block:clamp(72px,10vw,128px)}
 /* ---------- nav ---------- */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--ink) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.logo{height:34px;width:auto;color:var(--fg)}
+.logo{height:44px;width:auto;display:block}
 .nav-r{display:flex;align-items:center;gap:12px}
 .pill-bo{font:600 11px/1 var(--f-mono);letter-spacing:.14em;color:var(--amber);border:1px solid var(--amber);padding:8px 12px;border-radius:999px;white-space:nowrap}
 .nav .btn{padding:12px 16px;font-size:14px}
@@ -277,7 +277,7 @@ dialog.lb button{margin-top:10px;width:100%}
 @media (max-width:760px){.final-box{grid-template-columns:1fr}}
 footer{border-top:1px solid var(--line);padding-block:40px 120px;color:var(--muted);font-size:13px}
 footer .wrap{display:grid;gap:18px}
-footer .logo{height:40px}
+footer .logo{height:60px}
 footer p{max-width:90ch}
 
 
@@ -458,10 +458,7 @@ footer p{max-width:90ch}
 <body>
 <header class="nav">
   <div class="wrap">
-    <a href="#top" aria-label="Trade It Simple Solutions"><svg class="logo" viewBox="0 0 360 134" role="img" aria-label="TISS · Trade It Simple Solutions">
-        <text x="180" y="112" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="140" letter-spacing="6" fill="currentColor" opacity=".92">TISS</text>
-        <text x="180" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="17" letter-spacing="7.2" fill="currentColor" style="stroke:var(--ink)" stroke-width="7" paint-order="stroke">TRADE IT SIMPLE SOLUTIONS</text>
-      </svg></a>
+    <a href="#top" aria-label="Trade It Simple Solutions"><img class="logo" src="assets/logo-tiss.png" width="900" height="280" alt="TISS · Trade It Simple Solutions"></a>
     <div class="nav-r">
       <span class="pill-g">MEGA CUEVA · DÍA 2</span>
       <a class="btn btn-go" href="mi-cueva-tis.zip" download="mi-cueva-tis.zip">Descargar</a>
@@ -663,10 +660,7 @@ Pásala por las fases 01 a 03 y guarda la ficha en fichas/</pre>
 
 <footer>
   <div class="wrap">
-    <svg class="logo" viewBox="0 0 360 134" role="img" aria-label="TISS · Trade It Simple Solutions">
-        <text x="180" y="112" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="140" letter-spacing="6" fill="currentColor" opacity=".92">TISS</text>
-        <text x="180" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="17" letter-spacing="7.2" fill="currentColor" style="stroke:var(--ink)" stroke-width="7" paint-order="stroke">TRADE IT SIMPLE SOLUTIONS</text>
-      </svg>
+    <img class="logo" src="assets/logo-tiss.png" width="900" height="280" alt="TISS · Trade It Simple Solutions">
     <p>La Cueva TIS no opera, no da señales de compra o venta y no promete rentabilidad. Es una herramienta educativa para ordenar tu trabajo con el método TIS. Tú pones el criterio y decides.</p>
     <p><strong style="color:var(--fg)">Advertencia de riesgo:</strong> operar e invertir en mercados financieros implica riesgos y puede generar pérdidas. Todo el contenido tiene fines exclusivamente educativos y no constituye asesoramiento financiero personalizado.</p>
     <p>© 2026 Trade It Simple Solutions® · <a href="https://www.instagram.com/mariellangsaez/" style="color:var(--signal)">@mariellangsaez</a></p>
