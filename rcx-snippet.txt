@@ -823,7 +823,7 @@ section:has(#rcx) .section__heading,section:has(#rcx) [class*="heading"]:not(#rc
 <li class="plus">2 estrategias extra con sus códigos: 4 en total, diversificación desde el primer día</li>
 <li class="plus">Clase VIP en directo con Mariel al cierre del reto</li>
 <li class="plus">Grupo VIP: más reducido y más cerca de Mariel</li>
-<li class="bonus">Bonus VIP exclusivos, más completos que los del General, que te entregamos en privado</li>
+<li class="bonus">Bonus exclusivos solo para VIP, que te entregamos en privado al entrar</li>
 </ul>
 <a class="btn btn-go" href="https://www.tradeitsimplesolutions.com/enroll/3901234" data-checkout="vip">Entrar como VIP por $197</a>
 <a class="gmini" href="#garantia"><span>Garantía de resultado: <u>100 % de vuelta</u> si haces las 5 misiones y no llegas.</span></a>
@@ -839,7 +839,6 @@ section:has(#rcx) .section__heading,section:has(#rcx) [class*="heading"]:not(#rc
 <li>Tu robot corriendo en un VPS al terminar el Día 4 (VPS no incluido)</li>
 <li>Claude como copiloto, sin saber programar</li>
 <li>Grupo privado del reto y seguimiento diario</li>
-<li class="bonus">Bonus de bienvenida para participantes General, que te entregamos en privado al entrar</li>
 </ul>
 <a class="btn btn-ghost" href="https://www.tradeitsimplesolutions.com/enroll/3901229" data-checkout="general">Entrar por $97</a>
 <a class="gmini" href="#garantia"><span>Garantía de resultado: <u>100 % de vuelta</u> si haces las 5 misiones y no llegas.</span></a>
@@ -882,7 +881,7 @@ section:has(#rcx) .section__heading,section:has(#rcx) [class*="heading"]:not(#rc
 </details>
 <details>
 <summary>¿Qué diferencia hay entre General y VIP?</summary>
-<div>El VIP incluye todo lo del General y además 2 estrategias extra con sus códigos (sales con 4 y una cartera), una clase en directo con Mariel solo para VIP al cierre del reto, el grupo VIP y bonus exclusivos, más completos que los del General.</div>
+<div>El VIP incluye todo lo del General y además 2 estrategias extra con sus códigos (sales con 4 y una cartera), una clase en directo con Mariel solo para VIP al cierre del reto, el grupo VIP y bonus exclusivos que solo tiene la entrada VIP.</div>
 </details>
 <details>
 <summary>¿Cómo funciona la garantía?</summary>
