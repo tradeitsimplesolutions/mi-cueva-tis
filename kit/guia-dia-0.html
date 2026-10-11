@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>Tu Día 0 · Reto Cueva de Trading</title>
+<style>@font-face{font-family:'Unbounded';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/unbounded-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/unbounded-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/unbounded-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:900;font-display:swap;src:url(fonts/unbounded-latin-900-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/jetbrains-mono-latin-700-normal.woff2) format('woff2')}
+:root{
+  --bg:#0a0806;--bg2:#13100c;--bg3:#1c1711;--line:#3a3025;--line2:#251f18;
+  --muted:#a0948a;--cream:#efe6d5;--cream2:#d9cdb8;
+  --gold:#f2b544;--gold2:#d9a441;--golddim:rgba(242,181,68,.14);--green:#2ecc6a;
+  --display:'Unbounded',sans-serif;--body:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--body);line-height:1.55;font-size:16px;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+.mono{font-family:var(--mono)}
+.gold{color:var(--gold)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;margin:0;line-height:1.05;text-wrap:balance}
+h2{font-size:clamp(30px,4.6vw,56px)}
+h3{font-size:clamp(20px,2.2vw,26px);line-height:1.15}
+p{margin:0}
+.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(242,181,68,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(242,181,68,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 40%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000 10%,transparent 70%)}
+
+/* top */
+.top{position:sticky;top:0;z-index:40;background:rgba(10,8,6,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:30px;width:auto}
+.brand span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream2)}
+.nav{display:flex;gap:4px}
+.nav a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:999px;border:1px solid transparent}
+.nav a:hover{color:var(--gold);border-color:var(--line)}
+.status{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 64px;border-bottom:1px solid var(--line2)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 35%,rgba(242,181,68,.16),transparent 38%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6.4vw,84px);font-weight:800;margin:20px 0 22px;letter-spacing:-.045em;line-height:.98}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lead{font-size:clamp(17px,1.6vw,21px);color:var(--cream2);max-width:600px}
+.eye{position:relative;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(242,181,68,.35),0 0 90px rgba(242,181,68,.18)}
+.eye img{width:100%;height:100%;object-fit:cover}
+.eye::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 58%,rgba(10,8,6,.75) 100%)}
+.eye-tag{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:rgba(10,8,6,.85);border:1px solid rgba(242,181,68,.5);color:var(--cream);padding:7px 12px;border-radius:6px;white-space:nowrap}
+.eye-tag b{color:var(--gold);font-weight:500}
+
+.count{margin-top:34px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(242,181,68,.06),transparent),var(--bg2);border-radius:14px;padding:18px 20px;max-width:560px}
+.count .label{font-size:11px}
+.cells{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.cell{text-align:center;border:1px solid var(--line2);border-radius:10px;padding:10px 4px;background:var(--bg)}
+.cell b{display:block;font-family:var(--display);font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.cell span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.count .when{margin-top:12px;font-size:14px;color:var(--muted)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:14px 20px;border-radius:10px;border:1px solid var(--gold);background:var(--gold);color:#140f07;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(242,181,68,.25)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.sm{font-size:12px;padding:10px 14px}
+
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line2);position:relative}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:36px}
+.head p.sub{max-width:480px;color:var(--muted);font-size:16px}
+.head .label{margin-bottom:14px}
+
+/* first steps */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.s3{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--bg2);position:relative}
+.s3 .n{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.14em}
+.s3 h3{font-size:19px;margin:10px 0 8px}
+.s3 p{color:var(--muted);font-size:15px}
+
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--bg2);color:var(--muted);border:1px solid var(--line);padding:12px 16px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:10px}
+.tab b{font-family:var(--display);font-size:15px;color:var(--cream2);letter-spacing:0}
+.tab[aria-selected="true"]{border-color:var(--gold);color:var(--gold);background:var(--golddim)}
+.tab[aria-selected="true"] b{color:var(--gold)}
+.panel[hidden]{display:none}
+.day-intro{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-bottom:26px}
+.big{font-family:var(--display);font-weight:900;font-size:clamp(70px,10vw,130px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(242,181,68,.55);letter-spacing:-.06em}
+.day-intro h3{font-size:clamp(24px,3vw,36px);margin:8px 0 10px}
+.day-intro p{color:var(--cream2);max-width:720px}
+
+.res{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent),var(--bg2);padding:28px;margin-bottom:16px}
+.res-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.kind{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(242,181,68,.5);border-radius:999px;padding:5px 10px;margin-bottom:10px}
+.res-top h3{max-width:640px}
+.res-top .acts{display:flex;gap:8px;flex-wrap:wrap}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.box{border:1px solid var(--line2);border-radius:12px;padding:18px 20px;background:rgba(10,8,6,.5)}
+.box .label{font-size:11px;margin-bottom:10px}
+.box ul,.box ol{margin:0;padding-left:20px;color:var(--cream2);font-size:15px}
+.box li{margin:6px 0}
+.box li::marker{color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--cream2);background:var(--bg)}
+kbd,code{font-family:var(--mono);font-size:.88em;background:var(--bg3);border:1px solid var(--line2);border-radius:5px;padding:1px 6px;color:var(--cream);word-break:break-word}
+
+.code{margin-top:18px;border:1px solid var(--line);border-radius:12px;background:#070605;overflow:hidden}
+.code-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line2);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.code-bar .dots{display:flex;gap:6px}.code-bar .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.code pre{margin:0;padding:18px;max-height:320px;overflow:auto;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--cream2);white-space:pre-wrap;word-break:break-word}
+.code.open pre{max-height:none}
+.more{background:none;border:0;color:var(--gold);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:0}
+.copy{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:#140f07;border:0;border-radius:6px;padding:7px 11px;font-weight:700;cursor:pointer}
+.copy.done{background:var(--green)}
+.note{margin-top:14px;font-size:14px;color:var(--muted)}
+.note b{color:var(--cream2)}
+
+.rules4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+.r4{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg)}
+.r4 b{display:block;font-family:var(--display);font-size:28px;color:var(--gold);line-height:1;margin-bottom:8px}
+.r4 span{font-size:14px;color:var(--cream2)}
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ph{border:1px solid var(--line2);border-radius:10px;padding:12px;font-size:14px;color:var(--cream2);background:var(--bg)}
+.ph i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--gold);display:block;margin-bottom:4px;letter-spacing:.08em}
+
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.cd{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--bg2);position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column}
+.cd .n{position:absolute;right:10px;top:2px;font-family:var(--display);font-weight:900;font-size:72px;color:rgba(242,181,68,.08);line-height:1}
+.cd .d{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.cd h3{font-size:18px;margin:12px 0 8px}
+.cd .f{font-size:13px;color:var(--muted)}
+.cd .e{margin-top:auto;padding-top:12px;border-top:1px solid var(--line2);font-size:13px;color:var(--cream2)}
+.cd .e::before{content:"Entregable → ";font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.cd.live{border-color:rgba(242,181,68,.45)}
+
+/* guía */
+.guide{background:radial-gradient(circle at 20% 0%,rgba(242,181,68,.08),transparent 40%)}
+.pages{display:flex;flex-direction:column;gap:22px}
+.page{position:relative;border:1px solid var(--line);border-radius:18px;background:var(--bg2);padding:44px 48px;overflow:hidden}
+.page::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--gold),transparent)}
+.pg-top{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.pg-top b{color:var(--gold);font-weight:500}
+.page h3.ptitle{font-size:clamp(26px,3.4vw,40px);margin-bottom:16px}
+.page p{color:var(--cream2);margin-bottom:12px;max-width:820px}
+.letter{display:grid;grid-template-columns:240px 1fr;gap:36px;align-items:start}
+.portrait{border-radius:14px;overflow:hidden;position:relative;border:1px solid rgba(242,181,68,.35)}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,8,6,.85))}
+.portrait span{position:absolute;left:12px;bottom:10px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.sign{font-family:var(--display);font-size:18px;color:var(--gold);margin-top:6px}
+.check{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.check li{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;border:1px solid var(--line2);border-radius:10px;padding:12px 14px;background:rgba(10,8,6,.45)}
+.check input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:1.5px solid var(--gold2);border-radius:6px;margin:1px 0 0;cursor:pointer;position:relative;background:transparent}
+.check input:checked{background:var(--gold)}
+.check input:checked::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#140f07;font-weight:800;font-size:14px}
+.check b{color:var(--cream)}
+.check span{color:var(--cream2);font-size:15px}
+.check small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;padding:2px 6px;margin-left:6px;vertical-align:2px}
+.tag.y{background:var(--golddim);color:var(--gold)}.tag.n{background:rgba(239,68,68,.14);color:#f08a8a}.tag.o{background:rgba(160,148,138,.16);color:var(--muted)}
+.ex{display:grid;gap:12px}
+.exi{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:rgba(10,8,6,.45)}
+.exi .h{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.exi h4{margin:0;font-family:var(--display);font-size:17px}
+.exi .t{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+.exi p{font-size:15px;margin-bottom:6px}
+.exi .out{font-size:14px;color:var(--muted)}
+.exi .out b{color:var(--green);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.fill{font-family:var(--mono);font-size:13px;color:var(--cream);background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:10px 12px;margin:8px 0}
+.rem{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rm{border:1px solid var(--line2);border-radius:12px;padding:16px 18px;background:rgba(10,8,6,.45)}
+.rm b{display:block;font-family:var(--display);font-size:15px;margin-bottom:6px;color:var(--cream)}
+.rm span{font-size:14px;color:var(--cream2)}
+.rm strong{color:var(--cream)}
+.vipbox{margin-top:16px;border:1px solid rgba(242,181,68,.5);border-radius:12px;padding:16px 18px;background:var(--golddim);font-size:15px;color:var(--cream2)}
+.vipbox b{color:var(--gold)}
+.mini-cal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:6px 0 18px}
+.mc{border:1px solid var(--line2);border-radius:10px;padding:12px;background:rgba(10,8,6,.45);font-size:13px;color:var(--cream2)}
+.mc b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.guide-actions{display:flex;gap:10px;flex-wrap:wrap}
+.pg-foot{margin-top:26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line2);padding-top:12px}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line2);padding-top:24px}
+footer img{height:26px;width:auto;opacity:.85}
+footer p{max-width:720px}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;transition:.25s;background:var(--gold);color:#140f07;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:12px 18px;border-radius:10px;z-index:90;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}.eye{max-width:420px;margin:0 auto;width:100%}
+  .head{display:block}.head p.sub{margin-top:14px}
+  .cal{grid-template-columns:1fr 1fr}.cols2{grid-template-columns:1fr}
+  .rules4,.phases{grid-template-columns:1fr 1fr}.nav{display:none}
+  .letter{grid-template-columns:1fr}.portrait{max-width:260px}
+  .mini-cal{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  body{font-size:15px}
+  .hero{padding:44px 0 48px}
+  .steps3,.cal,.rem{grid-template-columns:1fr}
+  .page{padding:28px 20px}.res{padding:20px}
+  .day-intro{grid-template-columns:1fr;gap:6px}
+  .status{display:none}
+  .cells{gap:6px}
+  section{padding:60px 0}
+}
+
+@page{size:A4;margin:0}
+html,body{background:#0a0806}
+body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pages{gap:0}
+.page{width:210mm;height:297mm;border-radius:0;border:0;padding:16mm 16mm 14mm;page-break-after:always;break-after:page;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto;break-after:auto}
+.page .pg-foot{margin-top:auto;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line2);padding-top:8px}
+.page p{font-size:13.5px}
+.check span,.exi p,.rm span{font-size:13px}
+.check li{padding:9px 12px}
+.letter{grid-template-columns:62mm 1fr;gap:9mm}
+.mini-cal{grid-template-columns:repeat(5,1fr)}
+.rem{grid-template-columns:1fr 1fr}
+body::after{display:none}
+.rules4{grid-template-columns:repeat(4,1fr);gap:8px}.r4{padding:10px 12px}.r4 b{font-size:20px;margin-bottom:4px}.r4 span{font-size:12px}
+.rm{padding:12px 14px}.vipbox{font-size:13px;padding:12px 14px}
+</style></head>
+<body><div class="pages"><article class="page" id="g1">
+  <div class="pg-top"><span>Tu Día 0 · Reto Cueva de Trading</span><b>01 / 05 · Bienvenida</b></div>
+  
+  <div class="letter">
+    <div class="portrait"><img src="img/mariel-oro.jpg" alt="Mariel Lang Sáez" width="700" height="700"><span>Mariel · desde la Cueva</span></div>
+    <div>
+      <p class="label" style="margin-bottom:12px">Acceso concedido</p>
+      <h3 class="ptitle">Bienvenida a la Cueva, tortuga.</h3>
+      <p>Ya estás dentro. A partir del <b>domingo 25 de octubre</b> pasamos cinco días construyendo juntos, y el <b>jueves 29</b> sales con dos estrategias con su código, tu robot corriendo en un servidor y tu primer mini portafolio.</p>
+      <p>Hoy no tienes que entender todo. Tienes que llegar <b>preparado</b>, y para eso es esta guía: en unas dos horas, repartidas como quieras antes del domingo, dejas tus accesos listos, instalas lo básico y calientas con tres ejercicios cortos. Así el Día 1 lo usamos para construir, no para pelear con instalaciones.</p>
+      <p>Una sola idea para llevarte desde ya: <b>lo rentable es la estrategia, no tú.</b> No hace falta ser un genio. Hace falta un método que diga «no» antes que tu cuenta, y eso es lo que vamos a montar.</p>
+      <p>Si en algún momento te atascas, es normal: le pasa a todo el mundo. Para eso está el grupo.</p>
+      <p class="sign">Nos vemos el domingo en la Cueva.<br>— Mariel y el equipo TIS</p>
+    </div>
+  </div>
+  <div class="rem" style="margin-top:22px">
+    <div class="rm"><b>Esta guía tiene 5 páginas</b><span>01 Bienvenida · 02 Tus accesos y descargas · 03 Tres ejercicios de calentamiento · 04 Lo que tienes que recordar · 05 Tu semana y el checklist final.</span></div>
+    <div class="rm"><b>Tiempo total: ~2 horas</b><span>Accesos e instalación: 40 min. Ejercicios: 75 min. No hace falta saber programar ni tener capital.</span></div>
+  </div>
+  <div class="pg-foot"><span>Trade It Simple · @mariellangsaez</span><span>Contenido educativo · no es asesoría financiera</span></div>
+</article>
+<article class="page" id="g2">
+  <div class="pg-top"><span>Tu Día 0 · Reto Cueva de Trading</span><b>02 / 05 · Accesos y descargas</b></div>
+  
+  <h3 class="ptitle">Antes del domingo: deja esto listo.</h3>
+  <p>Marca cada casilla cuando la tengas. Lo que dice <span class="tag n">todavía no</span> es igual de importante: no gastes dinero antes de tiempo.</p>
+  <ul class="check">
+    <li><input type="checkbox" data-k="a1"><span><b>Entra a la plataforma del Reto</b> <span class="tag y">obligatorio</span><small>Con el mismo correo con el que compraste. El acceso te llegó en el correo de bienvenida. Ahí se suben los 5 entregables.</small></span></li>
+    <li><input type="checkbox" data-k="a2"><span><b>Únete a la comunidad de WhatsApp</b> <span class="tag y">obligatorio</span><small>El enlace está en tu correo de bienvenida. Por ahí se avisan los horarios y los enlaces de cada directo. Si eres VIP, únete también a tu grupo VIP.</small></span></li>
+    <li><input type="checkbox" data-k="a3"><span><b>Guarda nuestro correo como contacto</b> <span class="tag y">obligatorio</span><small>Y revisa la carpeta de spam o promociones. Si no te llegó nada, escríbenos por WhatsApp.</small></span></li>
+    <li><input type="checkbox" data-k="a4"><span><b>Instala Visual Studio Code</b> <span class="tag o">recomendado</span><small>Es gratis: <code>code.visualstudio.com/download</code>. Es donde vive tu cueva. El domingo lo montamos juntos; si lo instalas antes, ganas tiempo.</small></span></li>
+    <li><input type="checkbox" data-k="a5"><span><b>Crea tus cuentas gratis de GitHub y de Claude</b> <span class="tag o">recomendado</span><small>GitHub te da Copilot gratis dentro de VS Code; Claude (<code>claude.ai</code>) es tu copiloto. Qué plan necesitas exactamente te lo decimos el Día 1: para prepararte basta la cuenta gratis.</small></span></li>
+    <li><input type="checkbox" data-k="a6"><span><b>Crea tu cuenta gratis de TradingView</b> <span class="tag o">recomendado</span><small>De ahí sacas los datos de precios (CSV) para el ejercicio 3 y para el Día 2.</small></span></li>
+    <li><input type="checkbox" data-k="a7"><span><b>Descarga tu Cueva TIS</b> <span class="tag o">recomendado</span><small>El regalo del Día 2 de la Mega Cueva. Está en el Kit de la Cueva, pestaña Día 2. Lo usas en el ejercicio 2.</small></span></li>
+    <li><input type="checkbox" data-k="a8"><span><b>El servidor (VPS) para tu robot</b> <span class="tag n">todavía no</span><small>No está incluido y no lo compres aún: el martes 27 te decimos cuál contratar y el miércoles 28 lo configuramos juntos.</small></span></li>
+    <li><input type="checkbox" data-k="a9"><span><b>Bloquea 2 horas al día del 25 al 29</b> <span class="tag y">obligatorio</span><small>En tu calendario, ya. Si no puedes en directo, todo queda grabado hasta el 13 de diciembre.</small></span></li>
+  </ul>
+  <div class="pg-foot"><span>Trade It Simple · @mariellangsaez</span><span>Contenido educativo · no es asesoría financiera</span></div>
+</article>
+<article class="page" id="g3">
+  <div class="pg-top"><span>Tu Día 0 · Reto Cueva de Trading</span><b>03 / 05 · Calentamiento</b></div>
+  
+  <h3 class="ptitle">Tres ejercicios para llegar con ventaja.</h3>
+  <p>No son tareas del Reto ni cuentan para la garantía. Son para que el domingo llegues con material propio y no en blanco.</p>
+  <div class="ex">
+    <div class="exi">
+      <div class="h"><h4>1 · Tu diagnóstico</h4><span class="t">30 min · regalo Día 1</span></div>
+      <p>Copia el prompt del Día 1 (Kit de la Cueva, pestaña Día 1), pégalo en Claude, ChatGPT o Gemini y responde sus preguntas con honestidad. Si no tienes experiencia, dilo: también funciona. De lo que te devuelva, quédate con <b>tus 3 mejores hipótesis</b> y escríbelas así:</p>
+      <div class="fill">Compro ______ cuando ______. Salgo cuando ______.</div>
+      <p class="out"><b>Llevas al Día 1 →</b> tu nivel sistemático y 3 hipótesis escritas.</p>
+    </div>
+    <div class="exi">
+      <div class="h"><h4>2 · Tu primera ficha</h4><span class="t">30 min · regalo Día 2</span></div>
+      <p>Abre tu Cueva TIS en VS Code (o usa la ruta «¿Prefieres tu chat?») y pásale al Director tu mejor hipótesis. Pide las fases 01 a 03. La fase 02 saldrá <b>PENDIENTE</b> si no tienes datos: es lo correcto, el método no inventa cifras.</p>
+      <div class="fill">Regla completa = activo + condición que se pueda medir + salida escrita antes de entrar</div>
+      <p class="out"><b>Llevas al Día 1 →</b> una ficha con tu regla en pasos numerados.</p>
+    </div>
+    <div class="exi">
+      <div class="h"><h4>3 · Habla en datos</h4><span class="t">15 min · prepara el Día 2</span></div>
+      <p>En TradingView (computadora), abre el gráfico del activo de tu hipótesis en <b>diario</b> o <b>1 hora</b>, menú del gráfico → <i>Exportar datos del gráfico</i>, y guarda el CSV en la carpeta <code>datos/</code> de tu cueva. Mira las fechas: cuantos más años, mejor.</p>
+      <p class="out"><b>Llevas al Día 2 →</b> tu primer archivo de datos, listo para explorar.</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:14px"><b>Bonus:</b> pasa la misma idea por el Megacueva Tester y mira su veredicto X/4. Si no aprueba, ¡bien! Acabas de ver el método funcionando.</p>
+  <div class="pg-foot"><span>Trade It Simple · @mariellangsaez</span><span>Contenido educativo · no es asesoría financiera</span></div>
+</article>
+<article class="page" id="g4">
+  <div class="pg-top"><span>Tu Día 0 · Reto Cueva de Trading</span><b>04 / 05 · Recuerda</b></div>
+  
+  <h3 class="ptitle">Lo que tienes que recordar.</h3>
+  <div class="rem">
+    <div class="rm"><b>Un día, una misión, un entregable</b><span>Cada día tiene su contenido, su misión y un entregable. Lo subes al <strong>buzón de esa misión en la plataforma</strong>, no al WhatsApp.</span></div>
+    <div class="rm"><b>3 directos, el resto en vídeo</b><span>Directos el domingo 25, el miércoles 28 y el jueves 29. Lunes y martes, vídeos y ejercicios a tu ritmo, con office hours.</span></div>
+    <div class="rm"><b>Los horarios llegan por la comunidad</b><span>La hora y el enlace de cada directo se avisan en el grupo de WhatsApp. Activa sus notificaciones.</span></div>
+    <div class="rm"><b>Todo queda grabado</b><span>Si no puedes en directo, lo ves después. Tienes acceso a la plataforma y a las grabaciones hasta el 13 de diciembre.</span></div>
+    <div class="rm"><b>Pide ayuda pronto</b><span>Si te bloqueas, escribe en el grupo o en los foros en cuanto pase. Pedir ayuda también es condición de la garantía.</span></div>
+    <div class="rm"><b>No necesitas capital</b><span>Trabajamos con datos históricos. Nadie opera con dinero real durante el Reto.</span></div>
+  </div>
+  <div class="vipbox" style="margin-top:16px"><b>Tu garantía del 100 %.</b> Si completas las 5 misiones tal como se entregan y no terminas con una estrategia backtesteada y un robot corriendo en tu VPS, te devolvemos el pago. Para eso: sube los 5 entregables dentro de las fechas del Reto, sigue los pasos con las herramientas indicadas (incluido contratar tu VPS), pide ayuda si te bloqueas y solicítala por escrito hasta el 3 de noviembre, adjuntando tus entregables.</div>
+  <p style="margin-top:18px" class="label">Los 4 números que no se negocian</p>
+  <div class="rules4" style="margin-top:10px">
+    <div class="r4"><b>≥ 1,3</b><span>Factor de beneficio</span></div>
+    <div class="r4"><b>≥ 30</b><span>Operaciones</span></div>
+    <div class="r4"><b>&lt; 20 %</b><span>Caída máxima</span></div>
+    <div class="r4"><b>&gt; 1</b><span>Factor de beneficio sin la mejor operación</span></div>
+  </div>
+  <p class="note">Siempre fuera de muestra y con costes. No se bajan nunca para que algo pase.</p>
+  <div class="pg-foot"><span>Trade It Simple · @mariellangsaez</span><span>Contenido educativo · no es asesoría financiera</span></div>
+</article>
+<article class="page" id="g5">
+  <div class="pg-top"><span>Tu Día 0 · Reto Cueva de Trading</span><b>05 / 05 · Tu semana</b></div>
+  
+  <h3 class="ptitle">Tu semana en la Cueva.</h3>
+  <div class="mini-cal">
+    <div class="mc"><b>Dom 25 · directo</b>Método TIS y tus herramientas → entorno y repositorio listos</div>
+    <div class="mc"><b>Lun 26 · vídeo</b>Pensar en datos → tu primera hipótesis</div>
+    <div class="mc"><b>Mar 27 · vídeo</b>Claude, código y backtest → tu primera curva de equity</div>
+    <div class="mc"><b>Mié 28 · directo</b>Tu primer sistema automatizado → robot instalado</div>
+    <div class="mc"><b>Jue 29 · directo</b>Visión de portafolio → 2 estrategias en un mini portafolio</div>
+  </div>
+  <p class="label" style="margin-bottom:10px">Llegas listo al domingo si…</p>
+  <ul class="check">
+    <li><input type="checkbox" data-k="f1"><span><b>Entraste a la plataforma y estás en la comunidad de WhatsApp.</b></span></li>
+    <li><input type="checkbox" data-k="f2"><span><b>Tienes VS Code instalado y tus cuentas de GitHub y Claude creadas.</b></span></li>
+    <li><input type="checkbox" data-k="f3"><span><b>Tienes tus 3 hipótesis escritas</b> con «Compro ___ cuando ___. Salgo cuando ___.»</span></li>
+    <li><input type="checkbox" data-k="f4"><span><b>Sabes dónde está tu cueva</b> (la carpeta con EMPEZAR y AGENTS.md) y tienes un CSV en <code>datos/</code>.</span></li>
+    <li><input type="checkbox" data-k="f5"><span><b>Tienes las 2 horas bloqueadas</b> del domingo 25 al jueves 29.</span></li>
+  </ul>
+  <div class="vipbox"><b>Si eres VIP,</b> además de todo lo anterior tienes tu grupo VIP con Mariel, 2 estrategias extra con sus códigos (4 en total), una clase en directo al cierre y el banco de 100 ideas de trading con sus fuentes. Todo te llega por tu grupo VIP y por la plataforma.</div>
+  <p style="margin-top:18px;font-family:var(--display);font-size:20px;color:var(--cream)">El domingo empiezas en cero. <span class="gold">El jueves tienes un robot.</span></p>
+  <div class="pg-foot"><span>Trade It Simple · @mariellangsaez</span><span>Contenido educativo · no es asesoría financiera</span></div>
+</article></div></body></html>

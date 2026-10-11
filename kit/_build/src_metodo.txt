@@ -1,0 +1,41 @@
+# El método TIS · tu línea de producción de estrategias
+
+> Edítalo: es TU método. El Director (AGENTS.md) lo sigue tal como esté escrito aquí.
+
+Una estrategia es una línea de producción. Entra una idea; sale **validada** o **descartada**.
+Cada fase deja su bloque en la FICHA (`metodo/plantillas/FICHA.md`) con un veredicto:
+**APRUEBA**, **NO APRUEBA** o **PENDIENTE** (y qué falta).
+
+## Las 8 fases
+
+| Fase | Qué responde | Tipo | Quién en la cueva |
+|---|---|---|---|
+| 01 Hipótesis | ¿Qué comportamiento explota y por qué existiría la ventaja? | CRITERIO | agente hipotesis + skill escritor-hipotesis |
+| 02 AED | ¿Hay ventaja en los datos o es ruido? (AED = análisis exploratorio de datos) | CRITERIO + DATOS | Director + skill aed |
+| 03 Reglas | ¿La regla está escrita sin una sola duda? (pseudocódigo) | MOTOR | agente reglas |
+| 04 Backtest | ¿Pasa los 4 números fuera de muestra, con costes? | MOTOR | agente validador + skill validador-4de4 |
+| 05 Optimización | ¿Funciona en una meseta de parámetros, no en un pico? | MOTOR | (por construir) |
+| 06 Robustez | ¿Aguanta costes ×2, Monte Carlo y años malos? | MOTOR | (por construir) |
+| 07 Tamaño y riesgo | ¿Cuánto riesgo merece? | CRITERIO | tú |
+| 08 Puesta en marcha | Demo, servidor, seguimiento | DOCUMENTACIÓN | (por construir) |
+
+**Los tres tipos de fase**
+- **CRITERIO**: lo decides tú; la IA te ordena las ideas y te pregunta.
+- **MOTOR**: lo hace una máquina con datos (la IA con tus datos, un programa).
+- **DOCUMENTACIÓN**: dejarlo escrito para poder repetirlo y vigilarlo.
+
+## Los 4 números (fase 04)
+Siempre **fuera de muestra** (el 30 % de datos más reciente, que la estrategia no "vio" al
+diseñarse) y **con costes**:
+
+1. **Factor de beneficio ≥ 1,3** — lo que ganan las ganadoras ÷ lo que pierden las perdedoras.
+2. **Al menos 30 operaciones** — con menos, puede ser suerte.
+3. **Caída máxima < 20 %** — la peor bajada desde un máximo de la cuenta.
+4. **Factor de beneficio sin la mejor operación > 1** — si sin ella ya no gana, dependía de un golpe de suerte.
+
+Veredicto **X/4**. Solo 4/4 aprueba. **No se bajan nunca** para que algo pase.
+
+## Tres reglas de la cueva
+- Nunca se salta una fase. Nunca se optimiza para que algo pase.
+- Sin datos no hay cifras: la fase queda PENDIENTE.
+- La IA no da señales ni promete rentabilidad. Tú pones el criterio y decides.
